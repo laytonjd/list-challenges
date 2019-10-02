@@ -52,22 +52,22 @@ end
 
 def shift_left(list)
     new_list = []
+    x = list[1]
     x1 = 0
-    x2 = 0
-    list.size.times do |i|
-        slice = list[i..(list.size - 1)]
-        x1 = slice
+    x2 = list[0]
+    (list.size - 5).times do |i|
+            slice1 = list[i + 2..(list.size - 1)]
+            x1 = slice1
     end
-    (list.size - 3).times do |i|
-            slice1 = list[i..(i + 1)]
-            return slice1
-    end
+    new_list.push(x)
     new_list.push(x1)
     new_list.push(x2)
     return new_list
 end
 
-print shift_left([1,2, 3, 4])
+print shift_left([1,2, 3, 4, 5, 6])
+print shift_left([7, 8, 9, 10, 11, 12])
+
 
 #puts shift_left([1, 2, 3, 4])
 
