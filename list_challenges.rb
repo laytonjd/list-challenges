@@ -52,20 +52,16 @@ end
 
 def shift_left(list)
     new_list = []
-    
     x1 = 0
     x2 = list[0]
-    (list.size - 5).times do |i|
-            slice1 = list[i + 1..(list.size - 1)]
-            x1 = slice1
-    end
-    
+    slice1 = list[1..(list.size - 1)]
+    x1 = slice1
     new_list.push(x1)
     new_list.push(x2)
     return new_list
 end
     
-print shift_left([1,2, 3, 4, 5, 6])
+# print shift_left([1,2, 3, 4, 5, 6])
 # print shift_left([7, 8, 9, 10, 11, 12])
 
 
@@ -73,7 +69,7 @@ print shift_left([1,2, 3, 4, 5, 6])
 
 def g_happy(str)
     (str.size).times do |x|
-        slice = str[x + 1..(str.size + 1)]
+        slice = str[x..(str.size + 1)]
         if slice == "gg"
             return true
         end
@@ -106,3 +102,20 @@ def middle_way(list1, list2)
 end
 
 # print middle_way([1,2,3],[4,5,6])
+
+def either_2_4(list)
+    (list.size).times do |x|
+        slice = list[x..(list.size + 1)]
+        if slice == "22" || slice == "44"
+                return true
+        elsif slice == "22" && slice == "44"
+                return false
+        end
+    end
+    return false
+end
+
+puts either_2_4([1, 2, 2, 3, 5, 6]) # true
+puts either_2_4([1, 2, 2, 3, 4, 4]) # false
+puts either_2_4([1, 2, 3, 4, 4]) # true
+puts either_2_4([1, 2, 3, 4]) # false
