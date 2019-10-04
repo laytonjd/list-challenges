@@ -69,7 +69,7 @@ end
 
 def g_happy(str)
     (str.size).times do |x|
-        slice = str[x..(str.size + 1)]
+        slice = str[x + 1..(str.size + 1)]
         if slice == "gg"
             return true
         end
@@ -105,10 +105,10 @@ end
 
 def either_2_4(list)
     (list.size).times do |x|
-        slice = list[x..(list.size + 1)]
-        if slice == "22" || slice == "44"
+        slice = list[x + 1..(list.size + 2)]
+        if slice == 22 || slice == 44
                 return true
-        elsif slice == "22" && slice == "44"
+        elsif slice == 22 && slice == 44
                 return false
         end
     end
