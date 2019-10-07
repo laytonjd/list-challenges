@@ -103,19 +103,24 @@ end
 
 # print middle_way([1,2,3],[4,5,6])
 
-def either_2_4(list)
-    (list.size).times do |x|
-        slice = list[x + 1..(list.size + 2)]
-        if slice == 22 || slice == 44
-                return true
-        elsif slice == 22 && slice == 44
-                return false
+
+def e2_4(list)
+    count = 0
+    num = 0
+    list.each do |i|
+        if i == 4 || i == 2
+            if list[num] == list[num + 1]
+                count = count + 1
+            end
         end
+        num = num + 1
+    end
+    if count == 1
+        return true
     end
     return false
 end
 
-puts either_2_4([1, 2, 2, 3, 5, 6]) # true
-puts either_2_4([1, 2, 2, 3, 4, 4]) # false
-puts either_2_4([1, 2, 3, 4, 4]) # true
-puts either_2_4([1, 2, 3, 4]) # false
+puts e2_4([1, 2, 2, 3, 6, 8])
+puts e2_4([1, 2, 3, 4, 4]) # true
+puts e2_4([1, 2, 2, 4, 4, 7])
